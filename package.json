@@ -23,7 +23,7 @@
     "verify": "npm run verify:npm",
     "verify:npm": "npm view $npm_package_name version",
     "test": "casperjs test tests/suites/*",
-    "test:rebase": "casperjs test/suites/* --rebase"
+    "test:rebase": "npm run test -- --rebase"
   },
   "keywords": [
     "toolkit",
