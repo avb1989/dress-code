@@ -37,8 +37,14 @@ function setViewport(name) {
 };
 
 exports.openPage = function(path, viewportName) {
-  var rootUrl = config.rootUrl + path;  
+  var rootUrl = config.rootUrl + path;
   setViewport(viewportName);
+  //evaluates an expression in the current page DOM context.
+  casper.evaluate(function(){
+    // try to remove elements causing "noise", especially when resizing to "mobile" resolution
+    $('.f-menu').remove();
+    $('.f-header').remove();
+  });
   return casper.open(rootUrl);
 };
 
